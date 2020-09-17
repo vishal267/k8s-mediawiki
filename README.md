@@ -18,6 +18,27 @@ docker tag hi vishal26778/mediawiki:latest
 docker push vishal26778/mediawiki:latest
 
 
+Setup  helm3 on local machine 
+
+curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3
+$ chmod 700 get_helm.sh
+$ ./get_helm.sh
+
+Install kubectl Binaries  
+
+curl -LO https://storage.googleapis.com/kubernetes-release/release/v1.17.0/bin/linux/amd64/kubectl
+chmod +x kubectl 
+
+mv kubectl  /usr/local/bin/
+
+kubectl version --short
+
+
+Setup Ingress controller for K8s Cluster using Helm3
+
+helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
+helm install my-release ingress-nginx/ingress-nginx
+
 Create the Helm charts for mysql and mediawiki 
 Path of helm charts - helm/mysql/
                       helm/mediawiki 
